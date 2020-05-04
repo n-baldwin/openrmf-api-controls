@@ -8,30 +8,41 @@ namespace tests.Models
         [Fact]
         public void Test_NewControlSetIsValid()
         {
-            ControlSet cs = new ControlSet();
-            Assert.True(cs != null);
-            Assert.True(cs.id != null);
-            Assert.False(cs.lowimpact);
-            Assert.False(cs.moderateimpact);
-            Assert.False(cs.highimpact);
+            ControlSet controlSet = new ControlSet();
+
+            // Testing
+            Assert.False(controlSet == null);
         }
 
         [Fact]
         public void Test_ControlSetWidhDataIsValid()
         {
-            ControlSet cs = new ControlSet();
-            cs.family = "AC";
-            cs.number = "AC-1";
-            cs.title = "My AC title";
-            cs.priority = "P1";
-            cs.supplementalGuidance = "My supplemental guidance.";
-            cs.subControlDescription = "My subcontrol";
-            cs.subControlNumber = "AC-1.1";
-            Assert.True(cs != null);
-            Assert.True(cs.id != null);
-            Assert.False(cs.lowimpact);
-            Assert.False(cs.moderateimpact);
-            Assert.False(cs.highimpact);
+            ControlSet controlSet = new ControlSet();
+
+            controlSet.family = "family";
+            controlSet.number = "number";
+            controlSet.title = "title";
+            controlSet.priority = "priority";
+            controlSet.lowimpact = true;
+            controlSet.moderateimpact = true;
+            controlSet.highimpact = true;
+            controlSet.supplementalGuidance = "supguide";
+            controlSet.subControlDescription = "subcontdesc";
+            controlSet.subControlNumber = "subcontnum";
+
+            // Testing
+            Assert.True(controlSet.family == "family");
+            Assert.True(controlSet.number == "number");
+            Assert.True(controlSet.title == "title");
+            Assert.True(controlSet.priority == "priority");
+            Assert.True(controlSet.lowimpact);
+            Assert.True(controlSet.moderateimpact);
+            Assert.True(controlSet.highimpact);
+            Assert.True(controlSet.supplementalGuidance == "supguide");
+            Assert.True(controlSet.subControlDescription == "subcontdesc");
+            Assert.True(controlSet.subControlNumber == "subcontnum");
+            Assert.False(controlSet.id == null);
+            Assert.False(controlSet.indexsort == null);
         }
     }
 }
